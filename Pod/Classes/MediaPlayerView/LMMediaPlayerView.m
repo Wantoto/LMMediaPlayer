@@ -77,6 +77,9 @@ NSString *const LMMediaPlayerViewActionButtonImageKey = @"LMMediaPlayerViewActio
 	__unsafe_unretained IBOutlet UIButton *actionButton_;
 	__unsafe_unretained IBOutlet NSLayoutConstraint *actionButtonWidth_;
 	__unsafe_unretained IBOutlet NSLayoutConstraint *actionButtonRightMergin;
+    __unsafe_unretained IBOutlet NSLayoutConstraint *repeatButtonWidth_;
+    __unsafe_unretained IBOutlet NSLayoutConstraint *shuffleButtonWidth_;
+    __unsafe_unretained IBOutlet NSLayoutConstraint *fullscreenButtonWidth_;
 	BOOL fullscreen_;
 	BOOL seeking_;
 	BOOL needToSetPlayer_;
@@ -757,6 +760,21 @@ static LMMediaPlayerView *sharedPlayerView;
 	UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@/%@.png", [[NSBundle mainBundle] pathForResource:@"LMMediaPlayerView" ofType:@"bundle"], version, filename]];
 
 	return image;
+}
+
+- (void)setShuffleButtonHidden:(BOOL)hidden {
+    shuffleButton_.hidden = hidden;
+    shuffleButtonWidth_.constant = hidden ? 0 : 35;
+}
+
+- (void)setRepeatButtonHidden:(BOOL)hidden {
+    repeatButton_.hidden = hidden;
+    repeatButtonWidth_.constant = hidden ? 0 : 35;
+}
+
+- (void)setFullscreenButtonHidden:(BOOL)hidden {
+    fullscreenButton_.hidden = hidden;
+    fullscreenButtonWidth_.constant = hidden ? 0 : 30;
 }
 
 @end

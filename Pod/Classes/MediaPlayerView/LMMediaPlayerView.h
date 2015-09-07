@@ -71,4 +71,8 @@ extern NSString *const LMMediaPlayerViewActionButtonImageKey;
 - (void)setButtonImages:(NSDictionary *)info;
 - (void)setBluredUserInterface:(BOOL)bluredUserInterface visualEffect:(UIVisualEffect *)effect;
 
+- (void)setShuffleButtonHidden:(BOOL)hidden;
+- (void)setRepeatButtonHidden:(BOOL)hidden;
+- (void)setFullscreenButtonHidden:(BOOL)hidden;
+
 @end
